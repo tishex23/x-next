@@ -1,10 +1,18 @@
+"use client"
+
 import { FaXTwitter } from "react-icons/fa6";
 import { AiFillHome } from "react-icons/ai";
 import Link from "next/link";
+import { signIn, signOut, useSession } from "next-auth/react";
+
 
 
 
 export default function Sidebar() {
+
+const { data: session } = useSession();
+
+
   return (
     <div className="flex flex-col gap-4">
         <Link href="/">
@@ -17,11 +25,22 @@ export default function Sidebar() {
           <AiFillHome className="w-8 h-8" />
           <span className="font-bold hidden xl:inline">Home</span>
         </Link>
-        <button className="bg-blue-400 w-48 h-9 text-white
+
+        {session ? (
+          <button className="bg-blue-400 w-48 h-9 text-white
         hidden xl:inline  rounded-full hover:brightness-95
-        transition-all duration-200 ">
-          Sign in
-        </button>
+        transition-all duration-200" onClick={() => signOut()}>
+            Sign Out
+          </button>
+        ): (
+          <button className="bg-blue-400 w-48 h-9 text-white
+        hidden xl:inline  rounded-full hover:brightness-95
+        transition-all duration-200" onClick={() => signIn()}>
+            Sign in
+          </button>
+        )}
+        
+       
     </div>
   )
 }

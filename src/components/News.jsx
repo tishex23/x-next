@@ -18,7 +18,7 @@ export default function News() {
       }
     }
     fetchNews();
-  });
+  },[]);
 
   return (
     <div className="text-gray-700 space-y-3 bg-gray-100 rounded-xl pt-2">
