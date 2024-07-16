@@ -19,7 +19,7 @@ export default function Input() {
     const {data: session} = useSession();
     const imagePickRef = useRef(null);
 
-    const db = getFirestore(app); // 
+    const db = getFirestore(app); // get firestore for collection() function
 
     
     const addImageToPost = (e) => {
@@ -74,6 +74,7 @@ export default function Input() {
       setText("");
       setImageFileUrl(null);
       setSelectedFile(null);
+      location.reload();
     }
 
     if(!session) return null
