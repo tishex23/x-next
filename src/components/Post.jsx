@@ -10,7 +10,7 @@ export default function Post({id, post}) {
         <div className="flex-1">
             <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-1 whitespace-nowrap">
-                    <h4 className="font-bold text-s truncate">{post?.name}</h4>
+                    <h4 className="font-bold text-sm truncate">{post?.name}</h4>
                     <span className="text-xs truncate">@{post?.username}</span>
                 </div>
                 <HiDotsHorizontal className="text-sm" />
@@ -23,7 +23,7 @@ export default function Post({id, post}) {
                 className="rounded-2xl mr-2"
                 /> 
             </Link>
-            <Icons />
+            <Icons id={id}/>
         </div>
     </div>
   )
