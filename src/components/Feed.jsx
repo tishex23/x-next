@@ -16,7 +16,6 @@ export default async function Feed() {
     });
 
 
-
   return (
     <div>
       {data.map((post) => (
