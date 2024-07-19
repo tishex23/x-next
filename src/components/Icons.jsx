@@ -7,6 +7,9 @@ import { collection, doc, getFirestore, onSnapshot, serverTimestamp, setDoc, del
 import { app } from "@/firebase"
 import { useEffect, useState } from "react"
 
+import { useRecoilState } from "recoil"
+import { modalState } from "../atom/modalAtom"
+
 
 export default function Icons({id, uid}) {
 
@@ -15,6 +18,8 @@ export default function Icons({id, uid}) {
 
   const [isliked, setIsLiked] = useState(false);
   const [likes, setLikes] = useState([]);
+
+  const [open, setOpen] = useRecoilState(modalState);
 
   const likePost = async () => {
     if (session) {
@@ -60,6 +65,7 @@ export default function Icons({id, uid}) {
   return (
     <div className="flex justify-start gap-5 p-2 text-gray-500">
       <HiOutlineChat 
+      onClick={() => setOpen(!open)}
       className="h-8 w-8 
       cursor-pointer rounded-full p-2
       transition duration-500 ease-in-out
