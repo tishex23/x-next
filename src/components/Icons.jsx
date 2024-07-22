@@ -8,7 +8,7 @@ import { app } from "@/firebase"
 import { useEffect, useState } from "react"
 
 import { useRecoilState } from "recoil"
-import { modalState } from "../atom/modalAtom"
+import { modalState, postIdState } from "../atom/modalAtom"
 
 
 export default function Icons({id, uid}) {
@@ -20,6 +20,7 @@ export default function Icons({id, uid}) {
   const [likes, setLikes] = useState([]);
 
   const [open, setOpen] = useRecoilState(modalState);
+  const [postId, setPostId] = useRecoilState(postIdState);
 
   const likePost = async () => {
     if (session) {
@@ -65,7 +66,15 @@ export default function Icons({id, uid}) {
   return (
     <div className="flex justify-start gap-5 p-2 text-gray-500">
       <HiOutlineChat 
-      onClick={() => setOpen(!open)}
+      onClick={() =>{
+        if (!session) {
+          signIn();
+        }else{
+          setOpen(!open);
+          setPostId(id);
+          console.log(open) 
+        }
+      }}
       className="h-8 w-8 
       cursor-pointer rounded-full p-2
       transition duration-500 ease-in-out

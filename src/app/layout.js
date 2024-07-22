@@ -36,8 +36,8 @@ export default function RootLayout({ children }) {
             </div>
             <News />
           </div>
-          <CommentModal />
         </div>
+        <CommentModal />
       </body>
     </html>
     
