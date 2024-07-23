@@ -9,7 +9,8 @@ import { HiX } from "react-icons/hi";
 import { useSession } from "next-auth/react"
 import { useEffect, useState } from "react";
 import { app } from "@/firebase";
-import { getFirestore, doc, onSnapshot } from "firebase/firestore";
+import { getFirestore, doc, onSnapshot, addDoc, collection, serverTimestamp } from "firebase/firestore";
+import { useRouter } from "next/navigation";
 
 
 export default function CommentModal() {
@@ -20,6 +21,7 @@ export default function CommentModal() {
     const [input, setInput] = useState("");
     const {data: session} = useSession();
     const db = getFirestore(app);
+    const router = useRouter();
 
     const closeModal = () => {
         setOpen(false);
@@ -40,7 +42,21 @@ export default function CommentModal() {
       }
     },[postId])
 
-    const sendComment = async (e) => {}
+    const sendComment = async () => {
+      addDoc(collection(db, 'posts', postId, 'comments'), {
+        name: session.user.name,
+        username: session.user.username,
+        userimg: session.user.image,
+        comment: input,
+        timestamp: serverTimestamp(),
+      }).then(() => {
+        setInput("");
+        setOpen(false);
+        router.push(`/posts/${postId}`);
+      }).catch((err) => {
+        console.log('Error sending comment', err);
+      });
+    }
 
   return (
     <div>
