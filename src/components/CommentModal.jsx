@@ -25,7 +25,6 @@ export default function CommentModal() {
 
     const closeModal = () => {
         setOpen(false);
-        console.log(open);
     }
 
     useEffect(() => {

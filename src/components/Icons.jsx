@@ -82,7 +82,6 @@ export default function Icons({id, uid}) {
         }else{
           setOpen(!open);
           setPostId(id);
-          console.log(open) 
         }
       }}
       className="h-8 w-8 
