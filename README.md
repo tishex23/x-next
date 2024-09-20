@@ -1,36 +1,35 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# X-Next Clone
+## Overview
+X-Next is a Twitter (X) clone built with Next.js and Firebase, offering real-time features such as posting tweets, uploading images, commenting, and liking posts. Authentication is handled via Google using NextAuth.js, and the application ensures a seamless user experience with responsive design, state management using Recoil, and a dynamic UI.
 
-## Getting Started
+## Live Demo
+You can view the live demo here (https://x-next-woad.vercel.app).
 
-First, run the development server:
+## Tech Stack
+Frontend: Next.js, Tailwind CSS
+Backend: Firebase (Firestore, Storage)
+Authentication: NextAuth.js with Google Provider
+State Management: Recoil
+Icons: React Icons (HiIcons)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Key Features
+Google Authentication: Users can sign in via Google, with their profile information dynamically reflected in posts and comments.
+Post & Feed System: Users can create posts with text and images, and the feed updates in real-time.
+Comment & Like: Users can like and comment on posts, with all interactions tracked in Firebase.
+Modal System: Comment modal pops up using Recoil's state management for smooth and intuitive interaction.
+Image Upload: Users can upload images to Firebase Storage and display them in their posts.
+Responsive Design: Tailwind CSS ensures the app is fully responsive and optimized for mobile and desktop devices.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Usage
+Sign In: Authenticate via Google to access the app's features.
+Create a Post: Add a tweet with text and/or images and submit it to the feed, which updates in real time.
+Like & Comment: Engage with posts by liking or commenting. Comments can be added via a modal popup for a better experience.
+Upload Images: Upload images alongside your post using Firebase Storage.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Deployment
+This project uses Firebase for backend services and can be deployed on platforms such as Vercel. Ensure the following environment variables are set:
+Firebase API keys
+NextAuth.js Google Provider credentials
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## License
+This project is licensed under the MIT License.
